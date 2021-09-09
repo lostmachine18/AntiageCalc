@@ -5,10 +5,13 @@ import time
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
 import numpy as np
+import random
 
 x1 = np.random.randn(200) - 2
 x2 = np.random.randn(200)
 x3 = np.random.randn(200) + 2
+
+senolytics = ['Quercetin', 'Fisetin', 'Dasatinib', '17-DMAG (HSP90 inhibitor)', 'Curcumin analog EF24', 'Epigallocatechin gallate', 'Fenofibrate', 'Rapamycin', 'Azithromycin and Roxithromycin', 'FOXO4 peptide']
 
  # Group data together
 hist_data = [x1, x2, x3]
@@ -19,10 +22,16 @@ group_labels = ['Your biological age', 'Your predicted age', 'Longevity']
 fig = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
 fig.update_layout(
     autosize=False,
-    width=1400,
-    height=800, 
+    width=1100,
+    height=600, 
     )
 fig.update_layout(xaxis_showgrid=False, yaxis_showgrid=False)
+fig.update_layout(legend=dict(
+    yanchor="top",
+    y=0.99,
+    xanchor="left",
+    x=0.01
+))
 
 
 
@@ -114,8 +123,8 @@ fig2 = go.Figure(data=[go.Bar(
 fig2.update_layout(title_text='Damaged system of organs')
 fig2.update_layout(
     autosize=False,
-    width=1400,
-    height=800, 
+    width=1100,
+    height=600, 
     )
 fig2.update_layout(xaxis_showgrid=False, yaxis_showgrid=False)
 
@@ -138,8 +147,14 @@ if button:
     fig3.update_layout(showlegend=False)
     fig3.update_layout(
     autosize=False,
-    width=1400,
-    height=800, 
+    width=1100,
+    height=600, 
     )
     fig3.update_layout(xaxis_showgrid=False, yaxis_showgrid=False)
     st.plotly_chart(fig3)
+
+    #findTherapyButton = st.button("Find optimal senilytics")
+
+    
+    combination = random.sample(senolytics, 2)
+    st.success(f'Optimal therapy recomendation: {" and ".join(str(elem) for elem in combination)}')
