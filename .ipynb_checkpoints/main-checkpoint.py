@@ -73,8 +73,8 @@ brain_3 = expand2.number_input("Anxiety scale", 0, value=5, step=1)
 
 factor3_desc = st.sidebar.markdown("**Ophthalmoscopy**")
 expand3 = st.sidebar.expander("Click here and fill the requirements")
-eyes_1 = expand3.number_input("Lens Opacities Classification System III", 0, value=2, step=1)
-eyes_2 = expand3.number_input("Microvascular lesions in retina", 0, value=2, step=1)
+expand3.number_input("Lens Opacities Classification System III", 0, value=2, step=1)
+expand3.number_input("Microvascular lesions in retina", 0, value=2, step=1)
 
 factor4_desc = st.sidebar.markdown("**Ultrasonography**")
 expand4 = st.sidebar.expander("Click here and fill the requirements")
@@ -137,8 +137,8 @@ df_2007 = df.query("year==2007")
 
 if button:
     
-    colors = ['lightslategray'] * 6
-    damage = [100] * 6
+    colors = ['lightslategray'] * 5
+    damage = [30, 40, 40, 50, 20]
     
     ############################### BRAIN ####################################################
     brain_age = 0
@@ -162,20 +162,13 @@ if button:
     elif brain_age == 3:
         colors[3] = 'crimson'
         damage[3] = 40
-        
-    ############################### EYES ####################################################
-    eyes_age = 0
-    if brain_1 <= 15:
-        brain_age += 1
-    if brain_2 >= 33:
-        brain_age += 1
  
     
     
 
     fig2 = go.Figure(data=[go.Bar(
         x=['Cardio system', 'Lung system', 'Bone system',
-           'Brain system', 'Muscle system', 'Eyes'],
+           'Brain system', 'Muscle system'],
         y=damage,
         marker_color=colors # marker color can be a single color value or an iterable
     )])
