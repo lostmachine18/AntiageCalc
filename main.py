@@ -38,7 +38,7 @@ fig.update_layout(legend=dict(
 st.set_page_config(page_title="Age Calc", layout="wide", initial_sidebar_state="expanded", )
 sns.set_style("white")
 
-st.title("Aging calculator and therapy recomendation systemSSSSSSSSSSSSS")
+st.title("Aging calculator and therapy recomendation system!!!")
 st.markdown("## Your personal anti-aging program")
 st.markdown("### To start, choose options to the left!")
 st.markdown("____")
