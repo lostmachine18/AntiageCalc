@@ -49,7 +49,7 @@ expand10.number_input("Chronological age (years)", 0, value=30, step=1)
 sex = expand10.selectbox("Sex", ["Male", "Female"])
 height = expand10.number_input("Height (cm)", 0, value=184, step=1)
 weight = expand10.number_input("Body mass (kg)", 0, value=80, step=1)
-expand10.success(f"BMI = {weight / ((height / 100)**2)}")
+expand10.success(f"BMI = {round(weight / ((height / 100)**2)), 1}")
 
 factor1_desc = st.sidebar.markdown("**Senescence messaging secretome, SMS**")
 expand1 = st.sidebar.expander("Click here and fill the requirements")
